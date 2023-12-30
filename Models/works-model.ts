@@ -2,193 +2,194 @@ import {InterestedPartiesModel} from "./interested-parties-model";
 import {AdditionalIdentifiersModel} from "./additional-identifiers-model";
 
 export class WorksModel {
-    private _id: number;
-    private _iswc: string;
-    private _iswcEligible: boolean;
-    private _deleted: boolean;
-    private _createdDate: Date;
-    private _lastModifiedDate: Date;
-    private _agency: string;
-    private _sourcedb: number;
-    private _workcode: string;
-    private _category: string;
-    private _disambiguation: boolean;
-    private _disambiguateFrom: Array<any>;
-    private _derivedFromIswcs: Array<any>;
-    private _performers: Array<any>;
-    private _instrumentation: Array<any>;
-    private _cisnetCreatedDate: Date;
-    private _cisnetLastModifiedDate: Date;
-    private _additionalIdentifiers: AdditionalIdentifiersModel;
-    private _originalTitle: string;
-    private _otherTitles: Array<any>;
-    private _interestedParties: Array<InterestedPartiesModel>;
+    private _id: number | undefined;
+    private _iswc: string | undefined;
+    private _iswcEligible: boolean | undefined;
+    private _deleted: boolean | undefined;
+    private _createdDate: Date | undefined;
+    private _lastModifiedDate: Date | undefined;
+    private _agency: string | undefined;
+    private _sourcedb: number | undefined;
+    private _workcode: string | undefined;
+    private _category: string | undefined;
+    private _disambiguation: boolean | undefined;
+    private _disambiguateFrom: Array<any> | undefined;
+    private _derivedFromIswcs: Array<any> | undefined;
+    private _performers: Array<any> | undefined;
+    private _instrumentation: Array<any> | undefined;
+    private _cisnetCreatedDate: Date | undefined;
+    private _cisnetLastModifiedDate: Date | undefined;
+    private _additionalIdentifiers: AdditionalIdentifiersModel | undefined;
+    private _originalTitle: string | undefined;
+    private _otherTitles: Array<any> | undefined;
+    private _interestedParties: Array<InterestedPartiesModel> | undefined;
 
-    get id(): number {
+    get id(): number | undefined {
         return this._id;
     }
 
-    set id(value: number) {
+    set id(value: number | undefined) {
         this._id = value;
     }
 
-    get iswc(): string {
+    get iswc(): string | undefined {
         return this._iswc;
     }
 
-    set iswc(value: string) {
+    set iswc(value: string | undefined) {
         this._iswc = value;
     }
 
-    get iswcEligible(): boolean {
+    get iswcEligible(): boolean | undefined {
         return this._iswcEligible;
     }
 
-    set iswcEligible(value: boolean) {
+    set iswcEligible(value: boolean | undefined) {
         this._iswcEligible = value;
     }
 
-    get deleted(): boolean {
+    get deleted(): boolean | undefined {
         return this._deleted;
     }
 
-    set deleted(value: boolean) {
+    set deleted(value: boolean | undefined) {
         this._deleted = value;
     }
 
-    get createdDate(): Date {
+    get createdDate(): Date | undefined {
         return this._createdDate;
     }
 
-    set createdDate(value: Date) {
+    set createdDate(value: Date | undefined) {
         this._createdDate = value;
     }
 
-    get lastModifiedDate(): Date {
+    get lastModifiedDate(): Date | undefined {
         return this._lastModifiedDate;
     }
 
-    set lastModifiedDate(value: Date) {
+    set lastModifiedDate(value: Date | undefined) {
         this._lastModifiedDate = value;
     }
 
-    get agency(): string {
+    get agency(): string | undefined {
         return this._agency;
     }
 
-    set agency(value: string) {
+    set agency(value: string | undefined) {
         this._agency = value;
     }
 
-    get sourcedb(): number {
+    get sourcedb(): number | undefined {
         return this._sourcedb;
     }
 
-    set sourcedb(value: number) {
+    set sourcedb(value: number | undefined) {
         this._sourcedb = value;
     }
 
-    get workcode(): string {
+    get workcode(): string | undefined {
         return this._workcode;
     }
 
-    set workcode(value: string) {
+    set workcode(value: string | undefined) {
         this._workcode = value;
     }
 
-    get category(): string {
+    get category(): string | undefined {
         return this._category;
     }
 
-    set category(value: string) {
+    set category(value: string | undefined) {
         this._category = value;
     }
 
-    get disambiguation(): boolean {
+    get disambiguation(): boolean | undefined {
         return this._disambiguation;
     }
 
-    set disambiguation(value: boolean) {
+    set disambiguation(value: boolean | undefined) {
         this._disambiguation = value;
     }
 
-    get disambiguateFrom(): Array<any> {
+    get disambiguateFrom(): Array<any> | undefined {
         return this._disambiguateFrom;
     }
 
-    set disambiguateFrom(value: Array<any>) {
+    set disambiguateFrom(value: Array<any> | undefined) {
         this._disambiguateFrom = value;
     }
 
-    get derivedFromIswcs(): Array<any> {
+    get derivedFromIswcs(): Array<any> | undefined {
         return this._derivedFromIswcs;
     }
 
-    set derivedFromIswcs(value: Array<any>) {
+    set derivedFromIswcs(value: Array<any> | undefined) {
         this._derivedFromIswcs = value;
     }
 
-    get performers(): Array<any> {
+    get performers(): Array<any> | undefined {
         return this._performers;
     }
 
-    set performers(value: Array<any>) {
+    set performers(value: Array<any> | undefined) {
         this._performers = value;
     }
 
-    get instrumentation(): Array<any> {
+    get instrumentation(): Array<any> | undefined {
         return this._instrumentation;
     }
 
-    set instrumentation(value: Array<any>) {
+    set instrumentation(value: Array<any> | undefined) {
         this._instrumentation = value;
     }
 
-    get cisnetCreatedDate(): Date {
+    get cisnetCreatedDate(): Date | undefined {
         return this._cisnetCreatedDate;
     }
 
-    set cisnetCreatedDate(value: Date) {
+    set cisnetCreatedDate(value: Date | undefined) {
         this._cisnetCreatedDate = value;
     }
 
-    get cisnetLastModifiedDate(): Date {
+    get cisnetLastModifiedDate(): Date | undefined {
         return this._cisnetLastModifiedDate;
     }
 
-    set cisnetLastModifiedDate(value: Date) {
+    set cisnetLastModifiedDate(value: Date | undefined) {
         this._cisnetLastModifiedDate = value;
     }
 
-    get additionalIdentifiers(): AdditionalIdentifiersModel {
+    get additionalIdentifiers(): AdditionalIdentifiersModel | undefined {
         return this._additionalIdentifiers;
     }
 
-    set additionalIdentifiers(value: AdditionalIdentifiersModel) {
+    set additionalIdentifiers(value: AdditionalIdentifiersModel | undefined) {
         this._additionalIdentifiers = value;
     }
 
-    get originalTitle(): string {
+    get originalTitle(): string | undefined {
         return this._originalTitle;
     }
 
-    set originalTitle(value: string) {
+    set originalTitle(value: string | undefined) {
         this._originalTitle = value;
     }
 
-    get otherTitles(): Array<any> {
+    get otherTitles(): Array<any> | undefined {
         return this._otherTitles;
     }
 
-    set otherTitles(value: Array<any>) {
+    set otherTitles(value: Array<any> | undefined) {
         this._otherTitles = value;
     }
 
-    get interestedParties(): Array<InterestedPartiesModel> {
+    get interestedParties(): Array<InterestedPartiesModel> | undefined {
         return this._interestedParties;
     }
 
-    set interestedParties(value: Array<InterestedPartiesModel>) {
+    set interestedParties(value: Array<InterestedPartiesModel> | undefined) {
         this._interestedParties = value;
     }
-}
+
+  }

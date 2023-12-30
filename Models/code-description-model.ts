@@ -1,8 +1,8 @@
 export class CodeDescriptionModel {
-    private _code: string;
-    private _description: string;
+    private _code: string | undefined;
+    private _description: string | undefined;
 
-    get code(): string {
+    get code(): string | undefined {
         return this._code;
     }
 
@@ -10,7 +10,7 @@ export class CodeDescriptionModel {
         this._code = value;
     }
 
-    get description(): string {
+    get description(): string | undefined {
         return this._description;
     }
 

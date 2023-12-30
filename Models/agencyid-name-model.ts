@@ -1,8 +1,8 @@
 export class AgencyidNameModel {
-    private _agencyId: string;
-    private _name: string;
+    private _agencyId: string | undefined;
+    private _name: string | undefined;
 
-    get agencyId(): string {
+    get agencyId(): string | undefined {
         return this._agencyId;
     }
 
@@ -10,7 +10,7 @@ export class AgencyidNameModel {
         this._agencyId = value;
     }
 
-    get name(): string {
+    get name(): string | undefined {
         return this._name;
     }
 
