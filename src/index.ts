@@ -1,15 +1,20 @@
-import express, {Express, Request, Response} from "express";
-import dotenv from "dotenv";
-import {loginBMI} from "../puppeteer/loginBMI";
+import express, {Express, json, NextFunction, Request, Response} from "express";
+import dotenv from "dotenv"
+import bmiController from "../endpoints/bmi/bmi.controller";
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
-
+app.use(json());
+app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
-    loginBMI().then(() => res.send("Express + TypeScript Server"))
+    res.send("Express + TypeScript Server")
+});
 
+app.use('/api/bmi', bmiController);
+app.use((err: Error, req: Request, res:Response) => {
+    res.status(500).json({message: err.message});
 });
 
 app.listen(port, () => {
