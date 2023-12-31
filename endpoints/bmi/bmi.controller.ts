@@ -3,8 +3,7 @@ import {getBMIData} from "./bmi.service";
 
 const bmiController = Router();
 bmiController.post('/', async (req, res) => {
-    const workID: number | undefined = (req.body as BMIRequestDTO ).workID;
-    getBMIData(workID || 1).then(json => res.status(200).json(json))
+    getBMIData(req.body).then(json => res.status(200).json(json))
 });
 bmiController.get('/', async (req, res) => {
     res.status(415).send()
@@ -18,6 +17,3 @@ bmiController.delete('/', async (req, res) => {
 export default bmiController
 
 
-class BMIRequestDTO {
-    workID: number | undefined
-}

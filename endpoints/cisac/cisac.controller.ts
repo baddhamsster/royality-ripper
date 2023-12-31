@@ -4,7 +4,6 @@ import {CisacResponseModel} from "../../Models/cisac-response-model";
 
 const CisacController = Router();
 CisacController.post('/', async (req, res) => {
-    console.log(req.body)
     searchByTitleAndContributor(req.body).then(response => res.status(200).send(JSON.parse(response.body))).catch(e => console.log(e))
 });
 CisacController.get('/', async (req, res) => {
