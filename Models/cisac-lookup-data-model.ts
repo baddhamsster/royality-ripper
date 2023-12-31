@@ -1,8 +1,8 @@
 export class CisacLookupDataModel {
-    private _key: string;
-    private _values: Array<any>
+    private _key: string | undefined;
+    private _values: Array<any> | undefined;
 
-    get key(): string {
+    get key(): string | undefined {
         return this._key;
     }
 
@@ -10,7 +10,7 @@ export class CisacLookupDataModel {
         this._key = value;
     }
 
-    get values(): Array<any> {
+    get values(): Array<any> | undefined {
         return this._values;
     }
 

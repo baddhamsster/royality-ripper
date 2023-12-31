@@ -3,17 +3,17 @@ import {InterestedPartiesModel} from "./interested-parties-model";
 import {WorksModel} from "./works-model";
 
 export class CisacResponseModel {
-    private _iswc: string;
-    private _agency: string;
-    private _originalTitle: string;
-    private _otherTitles: Array<OtherTitlesModel>;
-    private _interestedParties: Array<InterestedPartiesModel>;
-    private _works: Array<WorksModel>;
-    private _linkedISWC: Array<any>;
-    private _createdDate: Date;
-    private _lastModifiedDate: Date;
+    private _iswc: string | undefined;
+    private _agency: string | undefined;
+    private _originalTitle: string | undefined;
+    private _otherTitles: Array<OtherTitlesModel> | undefined;
+    private _interestedParties: Array<InterestedPartiesModel> | undefined;
+    private _works: Array<WorksModel> | undefined;
+    private _linkedISWC: Array<any> | undefined;
+    private _createdDate: Date | undefined;
+    private _lastModifiedDate: Date | undefined;
 
-    get iswc(): string {
+    get iswc(): string | undefined {
         return this._iswc;
     }
 
@@ -21,7 +21,7 @@ export class CisacResponseModel {
         this._iswc = value;
     }
 
-    get agency(): string {
+    get agency(): string | undefined {
         return this._agency;
     }
 
@@ -29,7 +29,7 @@ export class CisacResponseModel {
         this._agency = value;
     }
 
-    get originalTitle(): string {
+    get originalTitle(): string | undefined {
         return this._originalTitle;
     }
 
@@ -37,7 +37,7 @@ export class CisacResponseModel {
         this._originalTitle = value;
     }
 
-    get otherTitles(): Array<OtherTitlesModel> {
+    get otherTitles(): Array<OtherTitlesModel> | undefined {
         return this._otherTitles;
     }
 
@@ -45,7 +45,7 @@ export class CisacResponseModel {
         this._otherTitles = value;
     }
 
-    get interestedParties(): Array<InterestedPartiesModel> {
+    get interestedParties(): Array<InterestedPartiesModel> | undefined {
         return this._interestedParties;
     }
 
@@ -53,7 +53,7 @@ export class CisacResponseModel {
         this._interestedParties = value;
     }
 
-    get works(): Array<WorksModel> {
+    get works(): Array<WorksModel> | undefined {
         return this._works;
     }
 
@@ -61,7 +61,7 @@ export class CisacResponseModel {
         this._works = value;
     }
 
-    get linkedISWC(): Array<any> {
+    get linkedISWC(): Array<any> | undefined {
         return this._linkedISWC;
     }
 
@@ -69,7 +69,7 @@ export class CisacResponseModel {
         this._linkedISWC = value;
     }
 
-    get createdDate(): Date {
+    get createdDate(): Date | undefined {
         return this._createdDate;
     }
 
@@ -77,7 +77,7 @@ export class CisacResponseModel {
         this._createdDate = value;
     }
 
-    get lastModifiedDate(): Date {
+    get lastModifiedDate(): Date | undefined {
         return this._lastModifiedDate;
     }
 

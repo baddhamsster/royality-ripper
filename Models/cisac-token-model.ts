@@ -1,10 +1,10 @@
 export class CisacTokenModel {
-    private _success: boolean;
-    private _fromCache: boolean;
-    private _tokenType: string;
-    private _token: string;
+    private _success: boolean | undefined;
+    private _fromCache: boolean | undefined;
+    private _tokenType: string | undefined;
+    private _token: string | undefined;
 
-    get success(): boolean {
+    get success(): boolean | undefined {
         return this._success;
     }
 
@@ -12,7 +12,7 @@ export class CisacTokenModel {
         this._success = value;
     }
 
-    get fromCache(): boolean {
+    get fromCache(): boolean | undefined {
         return this._fromCache;
     }
 
@@ -20,7 +20,7 @@ export class CisacTokenModel {
         this._fromCache = value;
     }
 
-    get tokenType(): string {
+    get tokenType(): string | undefined {
         return this._tokenType;
     }
 
@@ -28,7 +28,7 @@ export class CisacTokenModel {
         this._tokenType = value;
     }
 
-    get token(): string {
+    get token(): string | undefined {
         return this._token;
     }
 

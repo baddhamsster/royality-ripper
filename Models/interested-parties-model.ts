@@ -7,7 +7,7 @@ export class InterestedPartiesModel {
     private _role: string | undefined;
     private _legalEntityType: string | undefined;
 
-    get name(): string  | undefined{
+    get name(): string | undefined {
         return this._name;
     }
 
@@ -15,7 +15,7 @@ export class InterestedPartiesModel {
         this._name = value;
     }
 
-    get lastName(): string  | undefined{
+    get lastName(): string | undefined {
         return this._lastName;
     }
 
@@ -31,7 +31,7 @@ export class InterestedPartiesModel {
         this._nameNumber = value;
     }
 
-    get baseNumber(): string | undefined{
+    get baseNumber(): string | undefined {
         return this._baseNumber;
     }
 
@@ -39,7 +39,7 @@ export class InterestedPartiesModel {
         this._baseNumber = value;
     }
 
-    get affiliation(): string  | undefined{
+    get affiliation(): string | undefined {
         return this._affiliation;
     }
 
@@ -47,7 +47,7 @@ export class InterestedPartiesModel {
         this._affiliation = value;
     }
 
-    get role(): string  | undefined{
+    get role(): string | undefined {
         return this._role;
     }
 
@@ -55,7 +55,7 @@ export class InterestedPartiesModel {
         this._role = value;
     }
 
-    get legalEntityType(): string  | undefined{
+    get legalEntityType(): string | undefined {
         return this._legalEntityType;
     }
 

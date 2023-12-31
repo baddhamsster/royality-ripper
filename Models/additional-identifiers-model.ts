@@ -1,9 +1,9 @@
 export class AdditionalIdentifiersModel {
-    private _isrcs: Array<any>;
+    private _isrcs: Array<any> | undefined;
     private _publisherIdentifiers: any;
-    private _agencyWorkCodes: Array<any>;
+    private _agencyWorkCodes: Array<any> | undefined;
 
-    get isrcs(): Array<any> {
+    get isrcs(): Array<any> | undefined {
         return this._isrcs;
     }
 
@@ -19,7 +19,7 @@ export class AdditionalIdentifiersModel {
         this._publisherIdentifiers = value;
     }
 
-    get agencyWorkCodes(): Array<any> {
+    get agencyWorkCodes(): Array<any> | undefined {
         return this._agencyWorkCodes;
     }
 

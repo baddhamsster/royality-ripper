@@ -1,8 +1,8 @@
 export class OtherTitlesModel {
-    private _title: string;
-    private _type: string;
+    private _title: string | undefined;
+    private _type: string | undefined;
 
-    get title(): string {
+    get title(): string | undefined {
         return this._title;
     }
 
@@ -10,7 +10,7 @@ export class OtherTitlesModel {
         this._title = value;
     }
 
-    get type(): string {
+    get type(): string | undefined {
         return this._type;
     }
 

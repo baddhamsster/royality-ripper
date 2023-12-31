@@ -1,9 +1,9 @@
 export class CodeNameFamilyModel {
-    private _code: string;
-    private _name: string;
-    private _family: string;
+    private _code: string | undefined;
+    private _name: string | undefined;
+    private _family: string | undefined;
 
-    get code(): string {
+    get code(): string | undefined {
         return this._code;
     }
 
@@ -11,7 +11,7 @@ export class CodeNameFamilyModel {
         this._code = value;
     }
 
-    get name(): string {
+    get name(): string | undefined {
         return this._name;
     }
 
@@ -19,7 +19,7 @@ export class CodeNameFamilyModel {
         this._name = value;
     }
 
-    get family(): string {
+    get family(): string | undefined {
         return this._family;
     }
 

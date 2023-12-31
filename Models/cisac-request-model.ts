@@ -13,7 +13,7 @@ export class CisacRequestModel {
         this._titles = value;
     }
 
-    get interestedParties(): Array<InterestedPartiesModel>  | undefined{
+    get interestedParties(): Array<InterestedPartiesModel> | undefined {
         return this._interestedParties;
     }
 
