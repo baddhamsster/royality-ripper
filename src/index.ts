@@ -1,6 +1,7 @@
 import express, {Express, json, NextFunction, Request, Response} from "express";
 import dotenv from "dotenv"
 import bmiController from "../endpoints/bmi/bmi.controller";
+import cisacController from "../endpoints/cisac/cisac.controller";
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use('/api/bmi', bmiController);
+app.use('/api/cisac', cisacController);
 app.use((err: Error, req: Request, res:Response) => {
     res.status(500).json({message: err.message});
 });

@@ -21,7 +21,6 @@ export function getBMIData(workID: number): Promise<Element> {
             await newPage.goto(`https://applications.bmi.com/OSPORTAL/mobile/mobileCatalog/TitleDetails.aspx?titleID=${workID}&checkboxID=0`);
             newPage.content().then(async (res) => {
                 const elem: Element = JSON.parse(convert.xml2json(getXML(res, 'work')));
-                console.log(elem);
                 resolve(elem);
                 await browser.close();
             });
