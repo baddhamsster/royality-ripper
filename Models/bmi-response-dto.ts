@@ -41,7 +41,7 @@ function mapAttrTo<T>(attr: Attribute_dto[]): T[] {
 
 function convertElemToWorkDetail(elems: Element_dto[] | undefined): work_detail_dto | undefined {
     if (elems) {
-        return mapAttrTo<work_detail_dto>(elems.map((elem: Element_dto) => elem.attributes).flat())[0];
+        return mapAttrTo<work_detail_dto>(elems.map((elem: Element_dto) => elem?.attributes).flat())[0];
     }
     return undefined;
 }
@@ -50,7 +50,7 @@ function convertElemToAltTitles(elems: Element_dto[] | undefined): Array<alt_tit
     if (elems) {
         let titles: Element_dto[] = []
         titles = titles.concat(...elems.map((elem: Element_dto) => elem.elements as Element_dto[]))
-        return mapAttrTo<alt_title_dto>(titles.map((a:Element_dto) => a.attributes).flat());
+        return mapAttrTo<alt_title_dto>(titles.map((a: Element_dto) => a?.attributes || []).flat());
     }
     return [];
 }
@@ -59,27 +59,33 @@ function convertElemToAltTitles(elems: Element_dto[] | undefined): Array<alt_tit
 function convertElemToParticipants(elems: Element_dto[] | undefined): participants_dto | undefined {
     if (elems?.length) {
         return {
-            publisher: mapAttrTo<participant_dto>(elems.map((elem: Element_dto) => elem.attributes).flat().filter((a: Attribute_dto) => a.pwa_ind === 'P')),
-            writer: mapAttrTo<participant_dto>(elems.map((elem: Element_dto) => elem.attributes).flat().filter((a: Attribute_dto) => a.pwa_ind === 'W')),
+            publisher: mapAttrTo<participant_dto>(elems.map((elem: Element_dto) => elem?.attributes || []).flat().filter((a: Attribute_dto) => a.pwa_ind === 'P')),
+            writer: mapAttrTo<participant_dto>(elems.map((elem: Element_dto) => elem?.attributes).flat().filter((a: Attribute_dto) => a.pwa_ind === 'W')),
         } as participants_dto;
     }
     return undefined;
 }
 
 export function convertElementToBMIResponseDTO(element: Element_dto): BMIResponseDTO {
-    if (element?.elements?.length && element?.elements[0]?.elements?.length) {
-        const elems: Element_dto[] = element.elements[0].elements;
-        const work_detail: Element_dto[] | undefined = elems.filter((attr: Element_dto) => attr.name === 'work_detail');
-        const participants: Element_dto[] | undefined = elems.filter((attr: Element_dto) => attr.name === 'participant');
-        const alt_titles: Element_dto[] | undefined = elems.filter((attr: Element_dto) => attr.name === 'alt_titles');
+    try {
+        if (element?.elements?.length && element?.elements[0]?.elements?.length) {
+            const elems: Element_dto[] = element.elements[0].elements;
+            const work_detail: Element_dto[] | undefined = elems.filter((attr: Element_dto) => attr.name === 'work_detail');
+            const participants: Element_dto[] | undefined = elems.filter((attr: Element_dto) => attr.name === 'participant');
+            const alt_titles: Element_dto[] | undefined = elems.filter((attr: Element_dto) => attr.name === 'alt_titles');
 
-        return {
-            work_detail: convertElemToWorkDetail(work_detail),
-            alt_titles: convertElemToAltTitles(alt_titles),
-            participants: convertElemToParticipants(participants)
-        } as BMIResponseDTO;
+            return {
+                work_detail: convertElemToWorkDetail(work_detail),
+                alt_titles: convertElemToAltTitles(alt_titles),
+                participants: convertElemToParticipants(participants)
+            } as BMIResponseDTO;
+        }
+        return {} as BMIResponseDTO
+    } catch (e) {
+        console.error('convertElementToBMIResponseDTO', e)
+        return {} as BMIResponseDTO
     }
-    return {} as BMIResponseDTO
+
 }
 
 interface work_detail_dto {

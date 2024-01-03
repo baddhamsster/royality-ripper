@@ -1,7 +1,8 @@
-import express, {Express, json, NextFunction, Request, Response} from "express";
+import express, {Express, json, Request, Response} from "express";
 import dotenv from "dotenv"
 import bmiController from "../endpoints/bmi/bmi.controller";
 import cisacController from "../endpoints/cisac/cisac.controller";
+import events from "node:events";
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
     res.send("Express + TypeScript Server")
 });
+
+events.EventEmitter.defaultMaxListeners = 25;
 
 app.use('/api/bmi', bmiController);
 app.use('/api/cisac', cisacController);

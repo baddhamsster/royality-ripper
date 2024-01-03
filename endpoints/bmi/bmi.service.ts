@@ -3,6 +3,9 @@ import convert from 'xml-js'
 import {BmiRequestDto} from "../../Models/bmi-request-dto";
 import {BMIResponseDTO, convertElementToBMIResponseDTO} from "../../Models/bmi-response-dto";
 import {Element_dto} from "../../Models/element-dto";
+import {CisacResponseModel} from "../../Models/cisac-response-model";
+import {AgencyEnum} from "../../enums/agency.enum";
+import {WorksModel} from "../../Models/works-model";
 
 
 export function getBMIData(requestDTO: BmiRequestDto): Promise<BMIResponseDTO> {
@@ -32,8 +35,17 @@ export function getBMIData(requestDTO: BmiRequestDto): Promise<BMIResponseDTO> {
 
 }
 
-
-
 function getXML(string: string, tag: string) {
     return string.substring(string.indexOf('<' + tag), string.indexOf('</' + tag + '>') + (tag.length + 3))
+}
+
+export function updateBMIData(cisicData: CisacResponseModel[]) {
+    const filteredData: CisacResponseModel[] = cisicData.filter((data:CisacResponseModel) => data.agency === AgencyEnum.bmi)
+    let works: WorksModel[] = []
+    works = works.concat(...filteredData.map((elem: CisacResponseModel) => elem.works as WorksModel[]))
+    const bmi: WorksModel[] = works.filter((data:WorksModel) => data.agency === AgencyEnum.bmi);
+    const workCode: Array<BmiRequestDto> = bmi.map((value: WorksModel) => ({workID:value.workcode}))
+    workCode.forEach((code: BmiRequestDto) =>
+        getBMIData(code).then(res => console.log(res))
+    )
 }

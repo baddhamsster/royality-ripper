@@ -11,8 +11,17 @@ export async function getDataPointDictionary(): Promise<CisacResponseModel> {
     return JSON.parse(response.body) as CisacResponseModel;
 }
 
-export function searchByTitleAndContributer(body: CisacRequestModel): got.GotPromise<CisacResponseModel> {
-    return got.post('https://cisaciswcprod.azure-api.net/iswc/searchByTitleAndContributor', body);
+export function searchByTitleAndContributor(body: CisacRequestModel, token: string): got.GotPromise<string> {
+    // todo: (BBURKE) - Remove when generated token is passed.
+      let createPlaylistOptions = {
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization' : token,
+            'Accept' : 'application/json'
+        },
+        body: JSON.stringify(body)
+    }
+    return got.post('https://cisaciswcprod.azure-api.net/iswc/searchByTitleAndContributor', createPlaylistOptions);
 }
 
 export async function getCisacToken(): Promise<CisacTokenModel> {
@@ -45,7 +54,7 @@ export async function validateOrRetrieveToken(): Promise<string> {
     }
 }
 
-export function lessThanTwentyNineMinutesAgo (date: any): boolean {
+function lessThanTwentyNineMinutesAgo (date: any): boolean {
     const twentyNineMinutes = 29 * 60 * 1000; /* ms */
     const twentyNineMinutesAgo = Date.now() - twentyNineMinutes;
     return date > twentyNineMinutesAgo;
